@@ -25,4 +25,5 @@ Route::get('/react/sample/cancelingTimers', 'ReactTimersSampleController@canceli
 Route::get('/react/sample/cancelingTimers', 'ReactTimersSampleController@cancelPediodicTimerSample');
 
 //Streams
-Route::get('/react/sample/streamRead', 'ReactTimersSampleController@streamReadSample');
+Route::get('/react/sample/streamRead', 'ReactStreamsSampleController@streamReadSample');
+Route::get('/react/sample/duplexResourceStream', 'ReactStreamsSampleController@duplexResourceStreamSample');
