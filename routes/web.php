@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@home');
+
+//Timers
+Route::get('/react/sample/addTimer', 'ReactTimersSampleController@addTimerSample');
+Route::get('/react/sample/addPeriodicTimer', 'ReactTimersSampleController@addPeriodicTimerSample');
+Route::get('/react/sample/mixTimers', 'ReactTimersSampleController@mixTimersSample');
+Route::get('/react/sample/cancelingTimers', 'ReactTimersSampleController@cancelingTimersSample');
+Route::get('/react/sample/cancelingTimers', 'ReactTimersSampleController@cancelPediodicTimerSample');
+
+//Streams
+Route::get('/react/sample/streamRead', 'ReactTimersSampleController@streamReadSample');
