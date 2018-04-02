@@ -124,39 +124,5 @@ class ReactTimersSampleController extends Controller
 		});
 
 		$loop->run();
-	}
-
-	/**
-    * description of the method, what it is suposed to do
-    * @param string $variableName
-    * @return string $returnedVariableName
-    */
-    class ClassName
-    {
-	    private function methodName($variableName)
-	    {
-	    	/**/
-	    }
-    }
-
-
-    /**
-    * Save logs in storage/logs/
-    * @param string $type - Log type (debug, error)
-    * @param string $desc - Log Description
-    * @param string $method
-    * @param string $message
-    * @param string $receivedData
-    * @return void
-    */
-    private function saveLogPagSeguro($type, $desc, $method, $message, $receivedData, $logFileName = 'defaul-log.txt'){
-
-        $log  = "\n".date("d/m/Y H:i:s")." - Type: {$type} \n";
-        $log .= "     - Desc: {$desc} \n";
-        $log .= "     - Method: {$method} \n";
-        $log .= "     - Message: {$message} \n";
-        $log .= "     - Received Data: {$receivedData} \n";
-
-        file_put_contents("/var/www/project_name/storage/logs/{$logFileName}", $log, FILE_APPEND);
-    }
+	}	
 }
