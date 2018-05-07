@@ -63,4 +63,27 @@ class HttpClientSample extends Controller
 		echo "<pre>";
 		print_r($this->requestData);
 	}
+
+	public function multReactRequests(Request $request)
+	{
+		$amount = isset($request->amount) ? $request->amount : 10;
+
+		$loop = EventLoopReactFactory::create();
+		$client = new ReactClient($loop);
+
+		for ($i=0; $i < $amount; $i++) { 
+			$request = $client->request('GET', 'http://www.mocky.io/v2/5aef96dd2f00006400739bd6');
+			$request->on('response', function(Response $response) use($i){
+				$requestIdentifier = 'req'.$i;
+				$response->on('data', function($chunk) use($requestIdentifier){
+					@$this->requestData[$requestIdentifier] .= $chunk;
+				});					
+			});
+			$request->end();
+		}
+
+		$loop->run();
+		echo "<pre>";
+		print_r($this->requestData);
+	}
 }
