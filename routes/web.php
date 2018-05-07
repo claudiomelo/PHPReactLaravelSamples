@@ -27,3 +27,6 @@ Route::get('/react/sample/cancelingTimers', 'ReactTimersSampleController@cancelP
 //Streams
 Route::get('/react/sample/streamRead', 'ReactStreamsSampleController@streamReadSample');
 Route::get('/react/sample/duplexResourceStream', 'ReactStreamsSampleController@duplexResourceStreamSample');
+
+//HttpRequests
+Route::get('/react/sample/http/request', 'HttpClientSample@httpClientRequest');
